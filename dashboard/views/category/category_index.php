@@ -24,8 +24,8 @@ if (!isset($_SESSION['login']))
             <?php if (isset($_SESSION['success'])):?>
             <?php alert_message('success','success')?>
             <?php endif;?>
-            <div class="d-flex mb-2" >
-            <a class="btn btn-primary" href="<?= VIEWS?>category/category_create.php">Add new</a>
+            <div class="d-flex mb-2">
+                <a class="btn btn-primary" href="<?= VIEWS?>category/category_create.php">Add new</a>
             </div>
         </div>
         <table class="table table-bordered border-primary">
@@ -38,26 +38,41 @@ if (!isset($_SESSION['login']))
                 </tr>
             </thead>
             <tbody>
-                <?php
-                        if(isset($result)):
-                        $counter=1;
-                        foreach ($result as $item):
-                ?>
+                <?php if ($result->num_rows == 0): ?>
                 <tr>
-                    <th scope="row"><?= $counter?></th>
-                    <td><?= $item['id']?></td>
-                    <td><?= $item['name']?></td>
-                    <td>
-                        <a href="<?= VIEWS?>category/category_edit.php?id=<?= $item['id']?>" class="btn btn-primary ms-2">Edit</a>
-                        <a href="<?= HANDELERS?>category/category_delete.php?id=<?= $item['id']?>" class="btn btn-danger ms-2">Delete</a>
+                    <td colspan="4">
+                        <div class="alert alert-warning text-center" role="alert">
+                            <div>
+                                <b style="color: black"> There is no data </b>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                <?php
+                <?php else: ?>
+                    <?php
+                        $counter = 1;
+                        foreach ($result as $item):
+                    ?>
+                <tr>
+                    <th scope="row">
+                        <?= $counter ?>
+                    </th>
+                    <td><?= $item['id'] ?></td>
+                    <td><?= $item['name'] ?></td>
+                    <td>
+                        <a href="<?= VIEWS ?>category/category_edit.php?id=<?= $item['id'] ?>"
+                            class="btn btn-primary ms-2">Edit</a>
+                        <a href="<?= HANDELERS ?>category/category_delete.php?id=<?= $item['id'] ?>"
+                            class="btn btn-danger ms-2">Delete</a>
+                    </td>
+                </tr>
+                    <?php
                         $counter++;
                         endforeach;
-                        endif
-                ?>
+                    ?>
+                    <?php endif; ?>
             </tbody>
+
         </table>
     </div>
 </div>
