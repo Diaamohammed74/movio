@@ -29,7 +29,7 @@ define("VIEWS","http://localhost/movio/dashboard/views/");
                         <a class="nav-link active" href="<?= DASHBOARD?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= DASHBOARD?>">Categories</a>
+                        <a class="nav-link active" href="<?= VIEWS?>category/category_index.php">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= DASHBOARD?>">Films</a>
