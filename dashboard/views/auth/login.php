@@ -1,10 +1,15 @@
 <?php 
 session_start();
 ?>
-<?php include "../../layouts/header.php";?>
+    <?php include "../../layouts/header.php";?>
+<?php if (isset($_SESSION['login']))
+{
+    header("location:".DASHBOARD);
+}?>
 <?php 
 $_SESSION['title']="login";
 ?>
+
 <?php include "../../alerts/alerts.php"; ?>
 <div class="container pt-5">
     <div class="row">

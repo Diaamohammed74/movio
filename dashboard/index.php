@@ -7,7 +7,6 @@ if (!isset($_SESSION['login']))
     header("location:".VIEWS."auth/login.php");
 }
 ?>
-
 <?php include "alerts/alerts.php"?>
 <div class="container pt-5">
     <div class="row">
@@ -19,5 +18,4 @@ if (!isset($_SESSION['login']))
         </div>
     </div>
 </div>
-
 <?php include "layouts/footer.php"?>
