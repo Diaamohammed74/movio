@@ -26,6 +26,12 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     if (emptyInput($category)) {
         $errors[] = "Category field is required";
     }
+    if (emptyInput($image['name'])) {
+        $errors[] = "Movie poster is required";
+    }
+    if (emptyInput($video['name'])) {
+        $errors[] = "Movie video is required";
+    }
 
     if (empty($errors)) {
         include "../../handelers/upload/upload_image.php";
@@ -53,6 +59,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
         }
     } else {
         $_SESSION['name'] = $name;
+        $_SESSION['description'] = $description;
         $_SESSION['errors'] = $errors;
         header("location: " . VIEWS . "film/film_create.php");
     }

@@ -36,7 +36,7 @@ if (!isset($_SESSION['login']))
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Movie name</label>
                     <input type="text" name="name" class="form-control"
-                        value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : ' ';?>">
+                        value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '';?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Category</label>
@@ -49,20 +49,18 @@ if (!isset($_SESSION['login']))
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Movie Description</label>
                     <input type="text" name="desc" class="form-control"
-                        value="<?= isset($_SESSION['desc']) ? $_SESSION['desc'] : ' ';?>">
+                        value="<?= isset($_SESSION['description']) ? $_SESSION['description'] : '';?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Movie Poster</label>
-                    <input type="file" name="image" class="form-control"
-                        value="<?= isset($_SESSION['image']) ? $_SESSION['image'] : ' ';?>">
+                    <input type="file" name="image" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Movie Video</label>
-                    <input type="file" name="video" class="form-control"
-                        value="<?= isset($_SESSION['video']) ? $_SESSION['video'] : ' ';?>">
+                    <input type="file" name="video" class="form-control">
                 </div>
-                <?php //unset($_SESSION['errors']);?>
-                <?php //unset($_SESSION['name']);?>
+                <?php unset($_SESSION['errors']);?>
+                <?php unset($_SESSION['name']);?>
                 <div class="mb-3">
                     <button type="submit" name="submit" class="form-control btn btn-success">Add</button>
                 </div>

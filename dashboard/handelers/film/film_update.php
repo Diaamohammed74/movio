@@ -28,9 +28,9 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
         $errors[] = "Category field is required";
     }
 
-    if (empty($errors)) {
-
-        $sql_update_base = "UPDATE `films` SET `films`.`name`='$name',`films`.`desc`='$description',`films`.`category_id`='$category'";
+    if (empty($errors))
+    {
+        $sql_update_base = "UPDATE `films` SET `films`.`name`='$name',`films`.`desc`='$description',`films`.`category_id`='$category' where `films`.`id`= $id";
         $sql_update_result = mysqli_query($connection, $sql_update_base);
         include "../../handelers/upload/upload_image.php";
         include "../../handelers/upload/upload_video.php";
@@ -50,7 +50,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
                 $sql_update_img = mysqli_query($connection, $sql_update);
             }
         }
-        }
+        
         if (!empty($video['name']))
         {
             if (file_exists("../../uploads/videos/$old_video")) {
@@ -63,7 +63,16 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
                 $sql_update_video = mysqli_query($connection, $sql_update1);
             }
         }
+    } else {
+        $_SESSION['name'] = $name;
+        $_SESSION['description'] = $description;
+        $_SESSION['errors'] = $errors;
+        header("location: " . VIEWS . "film/film_edit.php?id=$id");
+    }
+
+    if (empty($errors)) {
         $_SESSION['success'] = ['Data Updated successfully'];
         header("location: " . VIEWS . "film/film_index.php");
     }
+}
 ?>
