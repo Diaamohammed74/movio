@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html>
-<main>
-    <title>Movio</title>
-    <!--<meta http-equiv="refresh" content="5" >-->
-    <link rel="stylesheet" href="style/style.css">
-    </link>
-</main>
-
-<body id=background>
-    <!---UPPER REGION-->
-    <div id=upper>
-        <div id="logo">
-            <img src="logo.png" width="200px" height="auto">
-        </div>
-        <ul id="nav">
-            <li id="main"><a href="index.php" class="navi">HOME</a></li>
-            <li id="store"><a href="store.php" class="navi">LIBRARY</a></li>
-            <li id="about"><a href="about.php" class="navi">CONTACT US</a></li>
-        </ul>
-        <div id="acc">
-            <a href=logout.php id=log>SIGN OUT</a>
-        </div>
-    </div>
+<?php include "layouts/header.php";?>
     <!---WELCOME REGION-->
     <div id="site">
         <div id="construction">
@@ -32,6 +9,6 @@
             <?php } ?>
         </div>
         <br>
-        <a href=store.html id=join_site>Browse the Store</a>
+        <a href=index.php id=join_site>Browse Films</a>
     </div>
     <?php include "layouts/footer.php"; ?>

@@ -1,5 +1,9 @@
 <?php
-include "database/db.php";
+
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'movio';
 
 $nameOne = $_POST['first_name'];
 $nameTwo = $_POST['second_name'];
@@ -23,18 +27,20 @@ if (!$connection) {
     $result = mysqli_query($connection, $sqlStatement);
     $result2 = mysqli_query($connection, $sqlStatement2);
 
+
+
     if (mysqli_num_rows($result) > 0) {
         header("location:register.php?error=Email is Already in Use!");
-        close();
+        exit();
     } else if (mysqli_num_rows($result2) > 0) {
         header("location:register.php?error=Phone Number is Already in Use!");
-        close();
+        exit();
     } else if ($password != $comfirmPassword) {
         header("location:register.php?error=Passwords Not Matching!");
-        close();
+        exit();
     } else if ($email != $comfirmEmail) {
         header("location:register.php?error=Email Not Matching!");
-        close();
+        exit();
     } else {
         $statement = $connection->prepare("insert into users(first_name, second_name, email, password, phone, age)values (?,?,?,?,?,?)");
         $statement->bind_param("ssssii", $nameOne, $nameTwo, $email, $password, $phone, $age);

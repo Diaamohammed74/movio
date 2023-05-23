@@ -270,12 +270,11 @@
 
         <div id=upper>
             <div id="logo">
-                <img src="logo.png" width="200px" height="auto">
+                <img src="images/logo.png" width="200px" height="auto">
             </div>
             <ul id="nav">
                 <li id="main"><a href="index.php" class="navi">HOME</a></li>
-                <li id="store"><a href="store.php" class="navi">LIBRARY</a></li>
-                <li id="about"><a href="about.php" class="navi">CONTACT US</a></li>
+                <li id="about"><a href="contact_us.php" class="navi">CONTACT US</a></li>
             </ul>
             <div id="acc">
                 <a href=login.php id=log>LOG IN</a>

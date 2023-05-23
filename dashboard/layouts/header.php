@@ -34,6 +34,9 @@ define("VIEWS","http://localhost/movio/dashboard/views/");
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= VIEWS?>film/film_index.php">Movies</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?= VIEWS?>feedback/feedback_index.php">FeedBack</a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
