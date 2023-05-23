@@ -14,5 +14,4 @@
                 <a href="complete.html"><input type="button" name="Submit" value="Send" /></a>
             </form>
         </div>
-</body>
-</html>
+        <?php include "layouts/footer.php";?>

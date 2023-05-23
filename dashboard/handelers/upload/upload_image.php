@@ -48,11 +48,8 @@ function uploadFile($direct,$request,$errors=[]){
     }
     
 }
-
 /*1- Valid Extensions -> it exist in file name 
 2-validation file size
 3-create new name
-
-
 */
 ?>

@@ -350,8 +350,4 @@
                 and <a href="https://policies.google.com/privacy">Privacy Policy</a> and that you are 18 years or older.</div>
             
         </div>
-
-
-        
-    </body>
-</html>
+        <?php include "layouts/footer.php";?>

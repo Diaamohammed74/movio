@@ -60,5 +60,4 @@ $result = mysqli_query($connection, $sql);
             </div>
         </div>
     </div>
-</body>
-</html>
+<?php include "layouts/footer.php";?>

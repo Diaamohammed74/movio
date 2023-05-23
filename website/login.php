@@ -16,6 +16,4 @@
             <?php }?>
         </form>
     </div>
-</body>
-
-</html>
+    <?php include "layouts/footer.php";?>
