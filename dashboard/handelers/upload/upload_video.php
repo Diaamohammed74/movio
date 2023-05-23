@@ -1,5 +1,6 @@
 <?php 
-function uploadVideo($direct,$request,$errors=[]){
+function uploadVideo($direct,$request,$errors=[])
+{
     $file=$request;
     $file_name=$file['name'];
     $file_type=$file['type'];
