@@ -1,54 +1,28 @@
 <?php
-session_start();
+session_start(); ?>
+<?php
 include "../database/db.php";
-$email = $_POST['email'];
-$pass = $_POST['password'];
+$vemail = mysqli_real_escape_string($connection, $_POST['email']);
+$vpass = mysqli_real_escape_string($connection, $_POST['password']);
 
 if (isset($email) && isset($pass)) {
 
-    function validate($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 
-    $vemail = validate($email);
-    $vpass = validate($pass);
+    //sql query to fetch data related to input
+    $sqlStatement = "SELECT * FROM `users` WHERE `email`='$vemail' AND password='$vpass'";
 
+    //storing result data
+    $result = mysqli_query($connection, $sqlStatement);
 
-    if (empty($vemail)) {
-        header("location: login.php?error=Email Required");
-        exit();
-
-    } else if (empty($pass)) {
-        header("location: login.php?error=Password Required");
-        exit();
-
+    if (mysqli_num_rows($result) === 1) {
+        header("location:index.php");
     } else {
-        //sql query to fetch data related to input
-        $sqlStatement = "SELECT * FROM users WHERE email='$vemail' AND password='$vpass'";
-
-        //storing result data
-        $result = mysqli_query($connection, $sqlStatement);
-
-        if (mysqli_num_rows($result) === 1) {
-
-            $row = mysqli_fetch_assoc($result);
-            if ($row['email'] === $vemail && $row['password'] === $vpass) {
-                echo "welcome back!";
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['password'] = $row['password'];
-                header("location:index.php");
-                exit();
-            } else {
-                header("location: login.php");
-                exit();
-            }
-        }
-        header("location: login.php?error=Incorrect Email or Password");
+        header("location: login.php");
         exit();
     }
+} else {
+    header("location: login.php?error=Incorrect Email or Password");
+    exit();
 }
+
 ?>

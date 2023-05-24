@@ -2,9 +2,9 @@
     <!---WELCOME REGION-->
     <div id="site">
         <div id="construction">
-            <?php if (isset($_GET['echo'])) { ?>
+            <?php if (isset($_GET['msg'])) { ?>
                 <div class="echo">
-                    <?php echo $_GET['echo']; ?>
+                    <?php echo $_GET['msg']; ?>
                 </div>
             <?php } ?>
         </div>
